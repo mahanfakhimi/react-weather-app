@@ -1,0 +1,128 @@
+@use "sass:math";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@500&family=Poppins:wght@500;700&family=Roboto:wght@500&display=swap");
+
+$gradient: linear-gradient(135deg, #5fc7ff 10%, #3939bc 100%);
+$font-family: "Montserrat";
+$main-color: #fff;
+$background-color: #343d4b;
+$border-radius: 25px;
+$font-weight-bold: 700;
+$opacity: 0.9;
+$spacing: 2rem;
+$row-gap: math.div($spacing, 3);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+  outline: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $background-color;
+  background-position: center center;
+  padding: $spacing;
+}
+
+.container {
+  border-radius: $border-radius;
+  color: $main-color;
+  width: 100%;
+  max-width: 300px;
+
+  form {
+    width: 100%;
+    height: 70px;
+    margin-bottom: $spacing;
+    position: relative;
+    background-image: $gradient;
+    padding: 0 $spacing;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    opacity: $opacity;
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      color: $main-color;
+      font-size: 16px;
+      font-weight: $font-weight-bold;
+      background-color: transparent;
+      margin-right: 20px;
+
+      &::placeholder {
+        color: $main-color;
+      }
+    }
+
+    button {
+      all: unset;
+
+      svg {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .weather-display {
+    position: relative;
+    border-radius: $border-radius;
+    transform: scale(1.02);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $spacing;
+    height: 400px;
+
+    .weather-gradient {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: $gradient;
+      border-radius: $border-radius;
+      opacity: $opacity;
+      z-index: -1;
+    }
+
+    .date-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: $row-gap;
+
+      .location-container {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    .weather-info-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: $row-gap;
+
+      h1 {
+        font-weight: $font-weight-bold;
+        font-size: 50px;
+      }
+    }
+  }
+}
