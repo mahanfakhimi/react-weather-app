@@ -18,6 +18,7 @@ $row-gap: math.div($spacing, 3);
   box-sizing: border-box;
   font-family: $font-family;
   outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
